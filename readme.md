@@ -1,5 +1,5 @@
 # Thirst Quencher
-## A Simple, Satisfying Gulp/Bower Boilerplate That Is Pretty Handy
+#### A Simple, Satisfying Gulp/Bower Boilerplate That Is Pretty Handy
 
 ## Features
 * Compiles HTML partials
