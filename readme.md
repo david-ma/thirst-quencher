@@ -66,15 +66,17 @@ Also make sure to include your S3 bucket `region` and `name` in `gulpfile.js` (l
 
 Run these tasks from your project directory with `gulp <taskname>`
 
-* `build` - compiles to `/dist` (sets production environment and will minify HTML/CSS, uglify JS, etc.)
+* `build` - sets production environment and compiles to `/dist`, minifying HTML/CSS and uglifying JS
 
-* `watch` - compiles to `/dist` (without minification, and will update /dist when you edit files in `/src`)
+* `watch` - compiles to `/dist`, and will watch `/src` for any file changes
 
 * `clean` - deletes `/dist`
 
-* `cacheclear` - clears gulp's cache (sometimes the `watch` task will have trouble with renamed static files such as images - running this after `clean` and then running `build` or `watch` will fix this)
+* `cacheclear` - clears gulp's cache
 
 * `deploy` - will run `build` and then publish to your specified S3 bucket
+
+*(Note: sometimes the `watch` task will not copy renamed static files such as images to `/dist` - running `clean`, then `cacheclear` and then `build` or `watch` will fix this)*
 
 ### Thanks
 
