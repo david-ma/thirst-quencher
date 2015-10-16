@@ -72,7 +72,7 @@ Also make sure to include your S3 bucket `region` and `name` in `gulpfile.js` (l
 
 * `gulp cacheclear` - clears gulp's cache (sometimes the `watch` task will have trouble with renamed static files such as images - running this after `gulp clean` and then re-running `gulp build` will fix this)
 
-* `gulp deploy` - will automatically run `gulp build` and then publish to your specified S3 bucket
+* `gulp deploy` - will run `gulp build` and then publish to your specified S3 bucket
 
 ### Thanks
 
