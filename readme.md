@@ -37,18 +37,18 @@ from your project directory. The `--save` flag will automatically add the `bower
 
 All Gulp packages will have the prefix `gulp-`.
 
-## Installation of packages and components
+## Installation of modules and components
 
 Run
 
 	npm install
 	bower install
 
-from your project directory to install all the `node` packages and `bower` components.
+from your project directory to install all the `node_modules` and `bower_components`.
 
 ## Customisation
 
-Comments with the text *Editable* have been added in the `gulpfile.js`, and indicate where you can change/add things to suit your project. Brief comments detailing what can be changed have also been added.
+Comments with the text _Editable_ have been added in the `gulpfile.js`, and indicate where you can change/add things to suit your project. Brief comments detailing what can be changed have also been added.
 
 ## File/Folder Structure
 
