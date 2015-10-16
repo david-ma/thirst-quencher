@@ -64,12 +64,12 @@ Also make sure to include your S3 bucket `region` and `name` in `gulpfile.js` (l
 
 ## Gulp Tasks
 
-`gulp build` - compiles to /dist (sets production environment and will minify HTML, JS, CSS, etc.)
-`gulp watch` - compiles to /dist (without minification, and will update /dist when you edit files in /src)
-`gulp clean` - deletes /dist
+`gulp build` - compiles to `/dist` (sets production environment and will minify HTML, JS, CSS, etc.)
+`gulp watch` - compiles to `/dist` (without minification, and will update /dist when you edit files in `/src`)
+`gulp clean` - deletes `/dist`
 `gulp cacheclear` - clears gulp's cache (sometimes the `watch` task will have trouble with renamed static files such as images - running this after `gulp clean` and then re-running `gulp build` will fix this)
 `gulp deploy` - will automatically run `gulp build` and then publish to your specified S3 bucket
 
 ### Thanks
 
-Special thanks to @jmoggach for first creating this boilerplate. It's been extremely useful to me, and I wanted to share it with others who wanted a quick kand easy way to setup Gulp/Bower for their project.
+Special thanks to *@jmoggach* for creating this boilerplate. It's been extremely useful to me, and I wanted to share it with others who wanted a quick kand easy way to setup Gulp/Bower for their project.
