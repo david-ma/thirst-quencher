@@ -36,7 +36,7 @@ gulp.task('html', function() {
 			basepath: 'src/partials/'
 		}))
 		.pipe($.minifyHtml({ // Editable - see https://www.npmjs.com/package/gulp-minify-html#options for details
-			conditionals: true;
+			conditionals: true
 		}))
 		.pipe(gulp.dest('dist/'));
 });
