@@ -2,13 +2,16 @@
 /* global $: true */
 "use strict";
 
-var gulp = require("gulp");
-var $ = require("gulp-load-plugins")({});
-var rimraf = require("rimraf");
-var envProd = false;
+var gulp 		= require("gulp");
+var $ 			= require("gulp-load-plugins")({});
+var rimraf 		= require("rimraf");
+var envProd 	= false;
 var runSequence = require('run-sequence');
 var awspublish  = require('gulp-awspublish');
-var staticSrc = "src/**/*.{eot,ttf,woff,woff2,otf,json,pdf}"; // Editable - add any file extensions you want gulp to watch for in /src
+var staticSrc 	= "src/**/*.{eot,ttf,woff,woff2,otf,json,pdf}"; // Editable - add any file extensions you want gulp to watch for in /src
+
+var browserSync = require('browser-sync').create();
+var reload 		= browserSync.reload;
 
 require('dotenv').load();
 
