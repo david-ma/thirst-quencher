@@ -146,6 +146,24 @@ gulp.task( "watch", ["stylesheets", "javascript", "jsconcat", "images", "html", 
 	});
 });
 
+// BrowserSync
+gulp.task('serve', ["images", "copy", "stylesheets", "javascript", "jsconcat"], function(){
+	browserSync.init({
+		proxy: "localhost" // Editable - defines proxy URL
+	});
+
+	gulp.watch("src/css/**/*.scss", ["styles"]);
+	gulp.watch("src/js/*.js", ["javascript"]);
+	gulp.watch("src/img/**/*.{jpg,png,gif,svg,webp}", ["images"]);
+
+	gulp.watch([
+		"dist/**/*.php",
+		"dist/**/*.js",
+		"dist/**/*.css",
+		"dist/**/*.{jpg,png,svg,webp}"
+	]).on( "change", browserSync.reload);
+});
+
 // Build
 gulp.task( "build", [
 	"production_env",
