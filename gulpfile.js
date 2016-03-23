@@ -2,10 +2,10 @@
 /* global $: true */
 "use strict";
 
-var gulp = require("gulp");
-var $ = require("gulp-load-plugins")({});
-var rimraf = require("rimraf");
-var envProd = false;
+var gulp 		= require("gulp");
+var $ 			= require("gulp-load-plugins")({});
+var rimraf 		= require("rimraf");
+var envProd 	= false;
 var runSequence = require('run-sequence');
 var staticSrc = "src/**/*.{eot,ttf,woff,woff2,otf,json,pdf}";
 var browserSync = require('browser-sync').create();
@@ -164,7 +164,6 @@ gulp.task('serve', ["stylesheets", "javascript", "jsconcat", "images", "html", "
     gulp.watch("src/scss/**/*.scss", ["stylesheets"]).on("change", browserSync.reload);
     gulp.watch("src/js/*.js", ["javascript"]).on("change", browserSync.reload);
     gulp.watch("dist/*.html").on("change", browserSync.reload);
-});
 
 // Build
 gulp.task( "build", [
