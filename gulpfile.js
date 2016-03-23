@@ -7,8 +7,8 @@ var $ = require("gulp-load-plugins")({});
 var rimraf = require("rimraf");
 var envProd = false;
 var runSequence = require('run-sequence');
-var awspublish  = require('gulp-awspublish');
-var staticSrc = "src/**/*.{eot,ttf,woff,woff2,otf,json,pdf}"; // Editable - add any file extensions you want gulp to watch for in /src
+var staticSrc = "src/**/*.{eot,ttf,woff,woff2,otf,json,pdf}";
+var browserSync = require('browser-sync').create();
 
 require('dotenv').load();
 
@@ -35,8 +35,8 @@ gulp.task('html', function() {
 			prefix: '@@',
 			basepath: 'src/partials/'
 		}))
-		.pipe($.minifyHtml({ // Editable - see https://www.npmjs.com/package/gulp-minify-html#options for details
-			conditionals: true
+		.pipe($.htmlmin({
+			minifyJS: true
 		}))
 		.pipe(gulp.dest('dist/'));
 });
@@ -44,7 +44,7 @@ gulp.task('html', function() {
 // Concatenate JS
 gulp.task("jsconcat", function() {
 	return gulp.src([
-			"bower_components/jquery/dist/jquery.min.js", // Editable - Add any additional paths to JS Bower components here
+			"bower_components/jquery/dist/jquery.min.js",
 			"src/js/vendor/*.js"
 		]).pipe( $.concat("vendor.min.js"))
 		.pipe( gulp.dest("dist/js"));
@@ -90,11 +90,16 @@ gulp.task("images", function(cb) {
 // Stylesheets
 gulp.task("stylesheets", function() {
 	var paths = [
-		'bower_components/normalize-scss/' // Editable - Defines directories where Bower CSS includes can be found. Also make sure to add the usual @import to you main.scss file
+		'bower_components/normalize-scss/',
+		'bower_components/bourbon/app/assets/stylesheets',
+		'bower_components/neat/app/assets/stylesheets'
 	];
 
 	var out = gulp.src('src/css/main.scss')
 		.pipe( $.sourcemaps.init() )
+		.pipe( $.cssGlobbing({
+			extensions: ['.scss']
+		}))
 		.pipe( $.sass({
 			style: 'expanded',
 			includePaths: paths
@@ -106,7 +111,7 @@ gulp.task("stylesheets", function() {
 			}
 		})
 		.pipe( $.autoprefixer({
-			browsers: ['last 2 versions'], // Editable - see https://github.com/postcss/autoprefixer#options for details
+			browsers: ['last 2 versions'],
 			cascade: false
 		})
 	);
@@ -146,6 +151,21 @@ gulp.task( "watch", ["stylesheets", "javascript", "jsconcat", "images", "html", 
 	});
 });
 
+// Serve
+gulp.task('serve', ["stylesheets", "javascript", "jsconcat", "images", "html", "copy", "watch"], function() {
+        browserSync.init({
+            server: {
+                baseDir: "dist/"
+            },
+            ghostMode: false
+    });
+    gulp.watch(staticSrc, ["copy"]);
+    gulp.watch("src/js/vendor/*.js", ["jsconcat"]);
+    gulp.watch("src/scss/**/*.scss", ["stylesheets"]).on("change", browserSync.reload);
+    gulp.watch("src/js/*.js", ["javascript"]).on("change", browserSync.reload);
+    gulp.watch("dist/*.html").on("change", browserSync.reload);
+});
+
 // Build
 gulp.task( "build", [
 	"production_env",
@@ -157,31 +177,3 @@ gulp.task( "build", [
 	"html",
 	"copy"
 ], function () {});
-
-// Deploy
-gulp.task( "deploy", function(callback) {
-	runSequence(
-		'build',
-		'publish',
-		 callback)
-});
-
-// Publish to S3
-gulp.task('publish', function() {
-
-	var publisher = awspublish.create({
-			region: 'ap-southeast-2', // Editable - S3 bucket region
-			params: {
-				Bucket: 'example-bucket' // Editable - S3 bucket name
-			},
-			"accessKeyId": process.env.AWS_ACCESS_KEY,
-			"secretAccessKey": process.env.AWS_SECRET_KEY
-		});
-
-	var files = gulp.src(['dist/**'])
-		.pipe(publisher.publish());
-
-	return files
-		.pipe(publisher.cache())
-		.pipe(awspublish.reporter());
-});
