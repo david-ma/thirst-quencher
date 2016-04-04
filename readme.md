@@ -14,6 +14,8 @@
 
 Comments with the text _Editable_ have been added in the `gulpfile.js`, and indicate where you can change/add things to suit your project. Brief comments detailing what can be changed have also been added.
 
+By default, Bourbon/Neat/jQuery have been disabled – to use them, uncomment the indicated lines in `main.scss`, as well as in `gulpfile.js` in the `Stylesheet` and `Concatenate JS` tasks.
+
 ## File/Folder Structure
 
 A basic file/folder structure has been included as an example of how to organise your `/src` directory.
