@@ -1,3 +1,9 @@
 // Bower
-@import "normalize";
-// Add Bower imports here, and also remember to add the path to the folder containing them to gulpfile.js in the Stylesheets section
+@import "normalize.scss";
+
+// Remove the comments from the next two lines to use Bourbon/Neat
+// @import "bourbon.scss";
+// @import "neat.scss";
+// Add any additional Bower imports here, and also remember to add the path to the folder containing them to gulpfile.js in the Stylesheets section
+
+// @import "components/*"
