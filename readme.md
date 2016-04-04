@@ -687,4 +687,4 @@ This will be compiled to:
 
 ### Thanks
 
-Special thanks to *@jmoggach* for creating an early version of this boilerplate. It's been extremely useful to me, and I wanted to share it with others who wanted a quick and easy way to setup Node/Gulp/Bower for their project.
+Special thanks to *@jmoggach* for creating an early version of the Gulp boilerplate – it's been extremely useful to me, and I wanted to share it with others who wanted a quick and easy way to setup Node/Gulp/Bower for their project.
