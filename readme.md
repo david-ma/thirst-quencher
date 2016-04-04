@@ -102,7 +102,7 @@ Since the majority of Bower packages used for front-end dev require either style
 
 #### SASS
 
-In order to import the SASS/CSS files from a Bower package, first an `@import` rule must be added to `main.scss` (see section [1.2](#1.2) for more information).
+In order to import the SASS/CSS files from a Bower package, first an `@import` rule must be added to `main.scss` (see section [2.2](#2.2) for more information).
 
 Next, you need to tell Gulp where to find the stylesheet (as it is not in the `css` folder). To do this, open `gulpfile.js` and find the **Stylesheets** task:
 
