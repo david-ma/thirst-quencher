@@ -1,13 +1,14 @@
 # Thirst Quencher
-#### A Simple, Satisfying Node/Gulp/Bower Boilerplate That Is Pretty Handy
+#### A Simple, Satisfying Node/Gulp/Bower/SASS Boilerplate That Is Pretty Handy
 
 ## Features
 * Compiles HTML partials
 * Compiles and autoprefixes SASS, and will include any `bower_components` CSS/SASS
 * Concatenates JS files and any `bower_components` JS, and runs JSHint
 * Live reload with `watch` task
+* Start your own local server for previewing as you build with `serve`
 * Deploys to S3 bucket with `deploy` task, and will maintain a cache to speed up subsequent deployments
-* Sets production environment on `build` or `deploy` and will minify HTML/CSS and uglify CSS
+* Sets production environment on `build` or `deploy` and will minify HTML/CSS and uglify JS
 
 ## Customisation
 
@@ -26,7 +27,7 @@ Rename the included `.env.example` file to `.env` and update it with your AWS cr
 Also make sure to include your S3 bucket `region` and `name` in `gulpfile.js` (locations are marked with the *Editable* comments).
 
 # Guide
-*This guide is a modified extract from a document I wrote for new front-end developers at my job.*
+*This guide is a modified extract from a document I wrote for new front-end developers at my job, so please excuse anything that doesn't make sense in this context. I'll update it one day...*
 
 ## Node/NPM, Gulp & Bower
 
@@ -41,7 +42,7 @@ Also make sure to include your S3 bucket `region` and `name` in `gulpfile.js` (l
 
 ### [1.1](#21--node--npm) – Node & NPM
 
-<a href="https://nodejs.org/en/" target="_blank">Node.js</a> is a JavaScript runtime environment for developing server-side web applications.
+<a href="https://nodejs.org/en/" target="_blank">Node.js</a> is a JavaScript runtime environment for developing server-side web applications. It also does a bunch of other cool stuff (which is what we're after).
 
 To install Node, visit the <a href="https://nodejs.org/en/" target="_blank">project website</a> and download the latest LTS release.
 
@@ -211,9 +212,9 @@ The `main.scss` file is used to import all other SASS project files. Here is a s
 @import "components/*";
 ```
 
-- The standard syntax for a SASS import is `@import "path/to/file";` – however please note that Bower components are required to have the `.scss` file extension.
+- The standard syntax for a SASS import is `@import "path/to/file";` – however please note that Bower components are required to have the `.scss` file extension due to a recent change in `libsass`.
 - Gulp is configured to use globbing, so the `*` wildcard can be used to import all SASS files within a specified folder.
-- Importing additional **Bower** components requires further setup, see section [2.3.2](#2.3.2) for more information.
+- Importing additional **Bower** components requires further setup, see section [1.3.2](#1.3.2) for more information.
 
 ## SASS, Bourbon and Neat
 
