@@ -7,7 +7,7 @@ var $ 			= require("gulp-load-plugins")({});
 var rimraf 		= require("rimraf");
 var envProd 	= false;
 var runSequence = require('run-sequence');
-var staticSrc = "src/**/*.{eot,ttf,woff,woff2,otf,json,pdf}";
+var staticSrc = "src/**/*.{eot,ttf,woff,woff2,otf,json,pdf}"; // Editable - any file extensions added here will trigger the watch task and will be instantly copied to your /dist folder
 var browserSync = require('browser-sync').create();
 
 require('dotenv').load();
@@ -35,7 +35,7 @@ gulp.task('html', function() {
 			prefix: '@@',
 			basepath: 'src/partials/'
 		}))
-		.pipe($.htmlmin({
+		.pipe($.htmlmin({ // Editable - see https://www.npmjs.com/package/gulp-minify-html#options for details
 			minifyJS: true
 		}))
 		.pipe(gulp.dest('dist/'));
@@ -44,7 +44,7 @@ gulp.task('html', function() {
 // Concatenate JS
 gulp.task("jsconcat", function() {
 	return gulp.src([
-			"bower_components/jquery/dist/jquery.min.js",
+			"bower_components/jquery/dist/jquery.min.js", // Editable - Add any additional paths to JS Bower components here
 			"src/js/vendor/*.js"
 		]).pipe( $.concat("vendor.min.js"))
 		.pipe( gulp.dest("dist/js"));
@@ -90,7 +90,7 @@ gulp.task("images", function(cb) {
 // Stylesheets
 gulp.task("stylesheets", function() {
 	var paths = [
-		'bower_components/normalize-scss/',
+		'bower_components/normalize-scss/', // Editable - Defines directories where Bower CSS includes can be found. Also make sure to add the usual @import to you main.scss file
 		'bower_components/bourbon/app/assets/stylesheets',
 		'bower_components/neat/app/assets/stylesheets'
 	];
@@ -111,7 +111,7 @@ gulp.task("stylesheets", function() {
 			}
 		})
 		.pipe( $.autoprefixer({
-			browsers: ['last 2 versions'],
+			browsers: ['last 2 versions'], // Editable - see https://github.com/postcss/autoprefixer#options
 			cascade: false
 		})
 	);
@@ -153,17 +153,19 @@ gulp.task( "watch", ["stylesheets", "javascript", "jsconcat", "images", "html", 
 
 // Serve
 gulp.task('serve', ["stylesheets", "javascript", "jsconcat", "images", "html", "copy", "watch"], function() {
-        browserSync.init({
-            server: {
-                baseDir: "dist/"
-            },
-            ghostMode: false
-    });
-    gulp.watch(staticSrc, ["copy"]);
-    gulp.watch("src/js/vendor/*.js", ["jsconcat"]);
-    gulp.watch("src/scss/**/*.scss", ["stylesheets"]).on("change", browserSync.reload);
-    gulp.watch("src/js/*.js", ["javascript"]).on("change", browserSync.reload);
-    gulp.watch("dist/*.html").on("change", browserSync.reload);
+		browserSync.init({
+			ghostMode: false,
+			proxy: "localhost", // Editable - defines proxy URL
+			server: {
+				baseDir: "dist/"
+			}
+	});
+	gulp.watch(staticSrc, ["copy"]);
+	gulp.watch("src/js/vendor/*.js", ["jsconcat"]);
+	gulp.watch("src/scss/**/*.scss", ["stylesheets"]).on("change", browserSync.reload);
+	gulp.watch("src/js/*.js", ["javascript"]).on("change", browserSync.reload);
+	gulp.watch("dist/*.html").on("change", browserSync.reload);
+});
 
 // Build
 gulp.task( "build", [
