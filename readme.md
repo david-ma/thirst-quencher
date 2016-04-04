@@ -32,15 +32,14 @@ Also make sure to include your S3 bucket `region` and `name` in `gulpfile.js` (l
 ## Node/NPM, Gulp & Bower
 
 #### Sections
-1. [Node & NPM](#21--node--npm)
-1. [Gulp](#22--gulp)
-1. [Bower](#23--bower)
+1. [Node & NPM](#11--node--npm)
+1. [Gulp](#12--gulp)
+1. [Bower](#13--bower)
 
-<!-- Project Structure Links -->
 [Node]:https://nodejs.org/en/
 [NPM]:https://www.npmjs.com/
 
-### [1.1](#21--node--npm) – Node & NPM
+### [1.1](#11--node--npm) – Node & NPM
 
 <a href="https://nodejs.org/en/" target="_blank">Node.js</a> is a JavaScript runtime environment for developing server-side web applications. It also does a bunch of other cool stuff (which is what we're after).
 
@@ -48,7 +47,7 @@ To install Node, visit the <a href="https://nodejs.org/en/" target="_blank">proj
 
 <a href="https://www.npmjs.com/" target="_blank">NPM</a> is a package manager for Node, and allows the installation and management of project dependancies. NPM comes bundled with Node, so no additional installation is required.
 
-### [1.2](#22--gulp) – Gulp
+### [1.2](#12--gulp) – Gulp
 
 <a href="http://gulpjs.com/" target="_blank">Gulp</a> is an automated, highly configurable streaming build system that is used to compile front-end source files into files readable by the browser. Gulp will:
 
@@ -79,7 +78,7 @@ The boilerplate Gulp setup uses a variety of tasks to take care of the tricky tr
 
 - `deploy`: will run `build` and then publish to your specified S3 bucket
 
-### [1.3](#23--bower) – Bower
+### [1.3](#13--bower) – Bower
 
 <a href="http://bower.io/" target="_blank">Bower</a> is a package manager for web projects which allows you to utilise the most up-to-date versions of a large variety of frameworks, libraries, assets and utilities.
 
