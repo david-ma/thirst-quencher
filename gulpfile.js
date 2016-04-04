@@ -101,7 +101,7 @@ gulp.task("stylesheets", function() {
 		// Uncomment the following two lines to use Bourbon/Neat
 		// 'bower_components/bourbon/app/assets/stylesheets',
 		// 'bower_components/neat/app/assets/stylesheets',
-		'bower_components/normalize-scss/bower_components/neat/app/assets/stylesheets'
+		'bower_components/normalize-scss'
 	];
 
 	var out = gulp.src('src/css/main.scss')
