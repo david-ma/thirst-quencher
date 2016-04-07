@@ -98,9 +98,9 @@ gulp.task("stylesheets", function() {
 		// Editable - Defines directories where Bower CSS includes can be found. Also make sure to add the usual @import to you main.scss file
 
 		// Uncomment the following two lines to use Bourbon/Neat
-		// 'bower_components/bourbon/app/assets/stylesheets',
 		// 'bower_components/neat/app/assets/stylesheets',
 
+		'bower_components/bourbon/app/assets/stylesheets',
 		'bower_components/bootstrap-sass/assets/stylesheets',
 		'bower_components/normalize-scss'
 	];
