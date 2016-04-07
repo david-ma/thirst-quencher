@@ -18,6 +18,7 @@
 4. `gulp build`
 
 You can now write your files in /src/ and enjoy them in /dist/
+
 Be sure to use `gulp watch` when coding, so that any time you change a file in /src/ it will be reflected in /dist/
 
 ## Customisation
