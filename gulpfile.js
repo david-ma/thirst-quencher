@@ -12,8 +12,6 @@ var runSequence = require('run-sequence');
 var staticSrc = "src/**/*.{eot,ttf,woff,woff2,otf,json,pdf}";
 var browserSync = require('browser-sync').create();
 
-require('dotenv').load();
-
 // Clean
 gulp.task("clean", function() {
 	return rimraf.sync("dist");
@@ -50,7 +48,8 @@ gulp.task("jsconcat", function() {
 			// Editable - Add any additional paths to JS Bower components here
 
 			// Uncomment the following line to use jQuery
-			// "bower_components/jquery/dist/jquery.min.js",
+			"bower_components/jquery/dist/jquery.min.js",
+			'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
 			"src/js/vendor/*.js"
 		]).pipe( $.concat("vendor.min.js"))
 		.pipe( gulp.dest("dist/js"));
@@ -101,6 +100,8 @@ gulp.task("stylesheets", function() {
 		// Uncomment the following two lines to use Bourbon/Neat
 		// 'bower_components/bourbon/app/assets/stylesheets',
 		// 'bower_components/neat/app/assets/stylesheets',
+
+		'bower_components/bootstrap-sass/assets/stylesheets',
 		'bower_components/normalize-scss'
 	];
 
