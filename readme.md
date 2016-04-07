@@ -10,6 +10,17 @@
 * Deploys to S3 bucket with `deploy` task, and will maintain a cache to speed up subsequent deployments
 * Sets production environment on `build` or `deploy` and will minify HTML/CSS and uglify JS
 
+## Quickstart
+
+1. `npm install`
+2. `bower install`
+3. `cp .env.example .env`
+4. `gulp build`
+
+You can now write your files in /src/ and enjoy them in /dist/
+
+Be sure to use `gulp watch` when coding, so that any time you change a file in /src/ it will be reflected in /dist/
+
 ## Customisation
 
 Comments with the text _Editable_ have been added in the `gulpfile.js`, and indicate where you can change/add things to suit your project. Brief comments detailing what can be changed have also been added.
