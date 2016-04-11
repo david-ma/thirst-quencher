@@ -9,9 +9,44 @@
 // @import "components/*"
 
 $transition: all 0.5s ease;
-$width: 250px;
-$sidebarColor: #07447C;
+$width: 300px;
 
+$font-stack: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+$primary-color: #07447C;
+$sidebar-color: darken( $primary-color, 10% );
+
+
+.navbar {
+	background-color: $primary-color;
+	color: #ffffff;
+	height: 100px;
+	div {
+		padding: 10px;
+	}
+	.navlogo {
+		height: 60px;
+	}
+	#login {
+		float: right;
+	}
+}
+
+.sidebar-module {
+	width: $width - 30;
+	color: #999;
+	margin-top: 0px;
+	padding: 15px;
+	text-align: justify;
+	h4 {
+		margin: 0;
+		color: #eee;
+	}
+}
+
+html {
+	font-family: $font-stack;
+}
 #wrapper {
 	padding-left: 0;
 	@include transition( $transition );
@@ -29,7 +64,7 @@ $sidebarColor: #07447C;
 	height: 100%;
 	margin-left: -$width;
 	overflow-y: auto;
-	background: $sidebarColor;
+	background: $sidebar-color;
 	@include transition( $transition );
 }
 
@@ -40,7 +75,7 @@ $sidebarColor: #07447C;
 #page-content-wrapper {
 	width: 100%;
 	position: absolute;
-	padding: 15px;
+/* 	padding: 15px; */
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -51,7 +86,7 @@ $sidebarColor: #07447C;
 /* Sidebar Styles */
 
 .sidebar-nav {
-	position: absolute;
+/* 	position: absolute; */
 	top: 0;
 	width: $width;
 	margin: 0;
@@ -106,7 +141,7 @@ $sidebarColor: #07447C;
     }
 
     #page-content-wrapper {
-        padding: 20px;
+/*         padding: 20px; */
         position: relative;
     }
 
@@ -115,6 +150,84 @@ $sidebarColor: #07447C;
         margin-right: 0;
     }
 }
+
+
+h1 {
+    color: #07447C;
+    font-weight: normal;
+    font-size: 1.25em;
+    margin: 0.8em 0 0.3em 0;
+}
+
+.module {
+	background-color: #eee;
+	margin: 10px;
+	padding: 10px;
+	width: $width - 40px;
+	border-radius: 0.6em;
+	min-height: 0px;
+	transition: $transition;
+	h1 {
+		text-transform: uppercase;
+		font-size: 1.1em;
+		margin: 0 0 0.3em;
+	}
+	ul {
+    font-size: 0.9em;
+    margin: 0;
+	}
+	a+ul {
+		transition: $transition;
+		position: absolute; 
+		overflow: hidden;
+	}
+}
+
+
+
+
+#search {
+	margin-top: 20%;
+	margin-left: 25%;
+	width: 50%;
+	border: 3px solid $primary-color;
+	padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

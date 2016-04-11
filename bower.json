@@ -8,6 +8,7 @@
     "normalize-scss": "^3.0.3",
     "bourbon": "^4.2.6",
     "neat": "^1.7.4",
-    "bootstrap-sass": "^3.3.6"
+    "bootstrap-sass": "^3.3.6",
+    "d3": "^3.5.16"
   }
 }

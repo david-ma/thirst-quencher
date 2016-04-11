@@ -15,133 +15,184 @@
 
 <style>
 
-.navbar {
-	background-color: #07447C;
-	color: #ffffff;
-	height: 100px;
-}
-#pathosmainlogo {
-    position: absolute;
-    height: 60px;
-    margin-top: 7px;
-    margin-left: 20px;
-    margin-right: 50px;
-}
-#petermac_logo {
-    position: absolute;
-    margin-left: 220px;
-}
 </style>
 
 </head>
 <body>
-<!-- 
 
-		<div id="nav" class="page-header" role="banner">
-
-    <div id="loginHeader">
-        
-        
-        
-    </div>
-    
- -->
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-    <a href="/PathOS/"><img src="/img/pathos_logo_complete_small.jpg" id="pathosmainlogo" alt="PathOS"></a>
+
+
+    <a href="/PathOS/">
+    	<img src="/img/pathos_logo_complete_small.jpg" class="navlogo" id="pathosmainlogo" alt="PathOS">
+    </a>
     <a href="http://www.petermac.org">
-        <img src="/img/petermac_logo_blue.png" alt="PeterMac" id="petermac_logo">
+      <img src="/img/petermac_logo_blue.png" class="navlogo" alt="PeterMac" id="petermac_logo">
     </a>
 
 
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li> 
-      <li><a href="#">Page 3</a></li> 
-    </ul>
+
+    <div id="login">LOL login thing here</div>
+
   </div>
 </nav>
 
 
 
+
+
 </div>
 
-    <div id="wrapper">
+<div id="wrapper">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
+		<!-- Sidebar -->
+		<div id="sidebar-wrapper">
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
-                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
+<div class="sidebar-module">
+<h4>Welcome to Path-OS<br>Variant Management System</h4>
+<p>
+This is a beta application to curate variations found by high throughput sequencing of cancer patient blood or tumour samples. While every effort has been made to ensure the accuracy of this application and its data, it is the users responsibility to verify results via external sources when reporting.
+</p>
+</div>
 
-    </div>
-    <!-- /#wrapper -->
+</div>
+<!-- /#sidebar-wrapper -->
 
-    <!-- jQuery -->
+
+
+
+
+
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+		
+	<div>
+		<input id="search" title="Search" placeholder="Search" autofocus></input>
+	</div>
+				
+				
+				
+				<div class="container-fluid">
+						<div class="row">
+								<div class="col-lg-12">
+<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+								</div>
+						</div>
+				</div>
+
+
+
+
+
+
+
+		</div>
+		<!-- /#page-content-wrapper -->
+
+
+
+
+
+
+</div>
+
+
     <script src="js/scripts.min.js"></script>
     <script src="js/vendor.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-<!--     <script src="js/bootstrap.min.js"></script> -->
-
-    <!-- Menu Toggle Script -->
     <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
+
+
+var patch = new PathOS.module({
+	name: "patch",
+	hidden: true,
+	title: "Path-OS Release  (Margaery Release) feature list:",
+	data: ["Speed up DbLoader","Patient disease context integrated from Holly","Added DB Locking to prevent conflicting merges","Implemented Continuous Integration (CI) testing","Added MNP variant support for Canary","Added BED file output for Canary","Added MRD pipeline for Haem","Added new search templates for Haem","New Pubmed table for reporting","Refactored PathOS deployment and build management","Added embedded IGV to sample variant page","1.1.1 Patch: Fixed occasionally unresponsive filters","1.1.1 Patch: Fixed final review bug"]
+})
+
+var status = new PathOS.module({
+	name: "status",
+	hidden: true,
+	title: "Application Status",
+	data: ["Path-OS version:","Environment: pa_local","Build version: 13","Grails version: 2.3.7","Groovy version: 2.1.9","JVM version: 1.7.0_80","Reloading active: true","Controllers: 43","Domains: 34","Services: 30","Tag Libraries: 47"]
+})
+
+
+
+$("#menu-toggle").click(function(e) {
+		e.preventDefault();
+		$("#wrapper").toggleClass("toggled");
+});
+    
     </script>
 
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
