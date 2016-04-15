@@ -10,6 +10,7 @@
 
 $transition: all 0.5s ease;
 $width: 300px;
+$nav-height: 100px;
 
 $font-stack: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
@@ -18,9 +19,14 @@ $sidebar-color: darken( $primary-color, 10% );
 
 
 .navbar {
+	z-index: 1001;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	
 	background-color: $primary-color;
 	color: #ffffff;
-	height: 100px;
+	height: $nav-height;
 	div {
 		padding: 10px;
 	}
@@ -32,22 +38,11 @@ $sidebar-color: darken( $primary-color, 10% );
 	}
 }
 
-.sidebar-module {
-	width: $width - 30;
-	color: #999;
-	margin-top: 0px;
-	padding: 15px;
-	text-align: justify;
-	h4 {
-		margin: 0;
-		color: #eee;
-	}
-}
-
 html {
 	font-family: $font-stack;
 }
 #wrapper {
+	margin-top: $nav-height;
 	padding-left: 0;
 	@include transition( $transition );
 }
@@ -75,7 +70,6 @@ html {
 #page-content-wrapper {
 	width: 100%;
 	position: absolute;
-/* 	padding: 15px; */
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -141,7 +135,6 @@ html {
     }
 
     #page-content-wrapper {
-/*         padding: 20px; */
         position: relative;
     }
 
@@ -157,6 +150,19 @@ h1 {
     font-weight: normal;
     font-size: 1.25em;
     margin: 0.8em 0 0.3em 0;
+}
+
+
+.sidebar-module {
+	width: $width - 30;
+	color: #999;
+	margin-top: 0px;
+	padding: 15px;
+	text-align: justify;
+	h4 {
+		margin: 0;
+		color: #eee;
+	}
 }
 
 .module {
@@ -194,6 +200,16 @@ h1 {
 	padding: 10px;
 }
 
+#loginHeader {
+    position: absolute;
+    margin-right: 15px;
+    margin-top: 19px;
+    right: 0;
+    top: 0;
+    color: #fff;
+    color: white;
+    margin-right: 15px;
+}
 
 
 
